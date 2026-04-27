@@ -109,7 +109,7 @@ Gawri selects the optimal chart type autonomously — no user configuration. Bel
 | Human-authored baseline | Gawri autonomous output |
 |:---:|:---:|
 | ![Manual pie chart](auto_pie.png) | ![Auto product category chart](product_category.png) |
-| *Manually configured* | *Generated from a conversational prompt* |
+| *Generated from Our System* | *Generated from a conversational prompt* |
 
 </div>
 
