@@ -10,7 +10,7 @@
          A N A L Y T I C S
 ```
 
-# Specter Analytics
+# Gawri Analytics
 
 **Automated Exploratory Data Analysis · Safe · Deterministic · Production-Ready**
 
@@ -29,7 +29,7 @@
 
 ## What It Does
 
-Specter Analytics lets you **talk to your data in plain English and get real dashboards back** — instantly. Upload a CSV, ask a question, and the system figures out the right chart, computes the right numbers, and renders the result. No code. No manual configuration.
+Gawri Analytics lets you **talk to your data in plain English and get real dashboards back** — instantly. Upload a CSV, ask a question, and the system figures out the right chart, computes the right numbers, and renders the result. No code. No manual configuration.
 
 - 📊 **Visualizations** — bar charts, pie charts, line trends, scatter plots, KPI cards
 - 🔢 **Numerical analysis** — aggregations, averages, grouped summaries, correlations
@@ -42,7 +42,7 @@ Specter Analytics lets you **talk to your data in plain English and get real das
 
 > Ask a question in plain English. Get a fully built, insight-annotated dashboard.
 
-![Specter Analytics Dashboard](dashboard.png)
+![Gawri Analytics Dashboard](dashboard.png)
 
 *The system automatically selects KPIs, chart types, and layout — then annotates each chart with a generated insight. No configuration needed.*
 
@@ -82,15 +82,15 @@ Evaluated on **130 natural language queries** across analytical, visualization, 
 
 | System | Avg. Latency | Accuracy |
 |---|---|---|
-| **Specter Analytics** | **2.06s** | **92%** |
+| **Gawri Analytics** | **2.06s** | **92%** |
 | LLM4Dash | 8.7s | 85% (drops to 76% on complex queries) |
 | LIDA | 12.3s | Qualitative only |
 
-Specter is **4.2× faster than LLM4Dash** and **6× faster than LIDA**, while scaling linearly with dataset size.
+Gawri is **4.2× faster than LLM4Dash** and **6× faster than LIDA**, while scaling linearly with dataset size.
 
 ### User Study
 
-21 participants (9 data analysts, 9 software engineers, 3 novices) rated Specter against expert-authored dashboards:
+21 participants (9 data analysts, 9 software engineers, 3 novices) rated Gawri against expert-authored dashboards:
 
 | Metric | Score |
 |---|---|
@@ -102,11 +102,11 @@ Specter is **4.2× faster than LLM4Dash** and **6× faster than LIDA**, while sc
 
 ## Auto-Generated Visualizations
 
-Specter selects the optimal chart type autonomously — no user configuration. Below: a human-authored baseline (left) vs. Specter's autonomous output (right) on the same dataset and query.
+Gawri selects the optimal chart type autonomously — no user configuration. Below: a human-authored baseline (left) vs. Gawri's autonomous output (right) on the same dataset and query.
 
 <div align="center">
 
-| Human-authored baseline | Specter autonomous output |
+| Human-authored baseline | Gawri autonomous output |
 |:---:|:---:|
 | ![Manual pie chart](auto_pie.png) | ![Auto product category chart](product_category.png) |
 | *Manually configured* | *Generated from a conversational prompt* |
