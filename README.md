@@ -74,7 +74,7 @@ Evaluated on **130 natural language queries** across analytical, visualization, 
 | Analytical (averages, totals, grouped summaries) | **94%** |
 | Visualization (charts, trends, comparisons) | **82%** |
 | Adversarial (restricted imports, system commands) | **100% refused** |
-| **Overall ESR** | **92% (118 / 130)** |
+| **Overall ESR** | **92% (120 / 130)** |
 
 ### Latency vs. Competitors
 
