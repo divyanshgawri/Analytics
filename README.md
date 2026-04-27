@@ -1,7 +1,5 @@
 <div align="center">
 
-<br/>
-
 ```
 ███████╗██████╗ ███████╗ ██████╗████████╗███████╗██████╗ 
 ██╔════╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
@@ -22,8 +20,6 @@
 [![Adversarial](https://img.shields.io/badge/adversarial%20refusal-100%25-ef9f27?style=flat-square)](#safety)
 [![Model](https://img.shields.io/badge/model-Llama--3.3--70B-444?style=flat-square)](https://llama.meta.com/)
 
-<br/>
-
 *Divyansh Gawri · Dept. of Computational Statistics & Data Analytics*  
 *Guru Nanak Dev University, Amritsar, Punjab, India*
 
@@ -33,76 +29,104 @@
 
 ## What It Does
 
-Specter Analytics lets you **talk to your data in plain English and get real dashboards back** — automatically. Upload a CSV, ask a question like *"show me monthly sales trends by region"* or *"what's the average order value per category?"*, and the system figures out the right chart, computes the right numbers, and renders the result — no code, no manual configuration.
+Specter Analytics lets you **talk to your data in plain English and get real dashboards back** — instantly. Upload a CSV, ask a question, and the system figures out the right chart, computes the right numbers, and renders the result. No code. No manual configuration.
 
-It handles the full analytics workflow:
-
-- 📊 **Visualization** — bar charts, pie charts, line trends, scatter plots, KPI cards
+- 📊 **Visualizations** — bar charts, pie charts, line trends, scatter plots, KPI cards
 - 🔢 **Numerical analysis** — aggregations, averages, grouped summaries, correlations
-- 🧩 **Multi-chart dashboards** — complex, layout-aware dashboards from a single conversational prompt
-- 💡 **Contextual insights** — automatically generated narrative explanations alongside each visualization
-
-The core design principle is **plan before you execute** — the system reasons about *what* to show before generating any code, which means outputs are consistent, structurally valid, and safe.
+- 🧩 **Multi-chart dashboards** — full layout-aware dashboards from a single conversational prompt
+- 💡 **Auto-generated insights** — narrative explanations written alongside every chart
 
 ---
 
-## Why Specter, Not Just an LLM?
+## The Dashboard
 
-Most LLM-based analytics tools plug your data directly into a language model and hope the generated code works. In practice, they hallucinate column names, pick wrong chart types, produce different results for the same query, and have no safety isolation during execution.
+> Ask a question in plain English. Get a fully built, insight-annotated dashboard.
 
-Specter solves this with a **four-stage modular pipeline**:
+![Specter Analytics Dashboard](dashboard.png)
+
+*The system automatically selects KPIs, chart types, and layout — then annotates each chart with a generated insight. No configuration needed.*
+
+---
+
+## System Architecture
+
+The framework runs as a four-stage pipeline — each stage has a clear contract, and no stage can corrupt another's output.
+
+![System Architecture](architecture.png)
 
 | Stage | What it does |
 |---|---|
-| **Schema Inference** | Converts your dataset into a validated metadata profile — the LLM never sees raw data |
-| **Intent Routing** | Classifies your query using fast keyword matching before falling back to LLM classification |
-| **Architect–Analyst Decoupling** | Plans the full dashboard structure first, validates it, *then* generates code |
-| **Runtime Guardrails** | Executes synthesized code in a sandboxed namespace with a strict forbidden-token blocklist |
-
-This separation means the system produces **deterministic, reproducible outputs** — the same query gives the same dashboard every time.
+| **Schema Inference** | Converts your dataset into a validated metadata profile. The LLM never sees raw data — eliminating hallucinated columns and type errors. |
+| **Intent Routing** | Classifies your query using fast keyword matching before falling back to LLM classification. Keeps latency low. |
+| **Architect–Analyst Decoupling** | Plans the full dashboard structure first, validates it structurally, *then* generates code. |
+| **Runtime Guardrails** | Executes code in a sandboxed namespace. Forbidden tokens (`os`, `sys`, `exec`, `eval`, `open`) trigger immediate rejection. |
 
 ---
 
 ## Results
 
-Evaluated on 130 natural language queries across analytical, visualization, and adversarial categories using three real-world datasets.
+Evaluated on **130 natural language queries** across analytical, visualization, and adversarial categories.
 
 ### Execution Outcomes
 
 | Query Type | Success Rate |
 |---|---|
-| Analytical queries (averages, totals, grouped summaries) | **94%** |
-| Visualization queries (charts, trends, comparisons) | **82%** |
-| Adversarial prompts (restricted imports, system commands) | **100% refused** |
-| **Overall ESR** | **92% (118/130)** |
-
-Failures were linked to ambiguous user intent — not structural or runtime errors.
+| Analytical (averages, totals, grouped summaries) | **94%** |
+| Visualization (charts, trends, comparisons) | **82%** |
+| Adversarial (restricted imports, system commands) | **100% refused** |
+| **Overall ESR** | **92% (118 / 130)** |
 
 ### Latency vs. Competitors
 
-```
-Specter Analytics  ██░░░░░░░░░░░░░░░░░░  2.06s   ✓ 4.2× faster than LLM4Dash
-LLM4Dash           ████████░░░░░░░░░░░░  8.70s
-LIDA               ████████████░░░░░░░░  12.3s   ✓ 6× faster than LIDA
-```
+![Latency Chart](latency_chart.png)
 
-Latency scales **linearly** with dataset size — 0.8s for 1k rows, 2.01s for 10k, 5.4s for 100k.
+| System | Avg. Latency | Accuracy |
+|---|---|---|
+| **Specter Analytics** | **2.06s** | **92%** |
+| LLM4Dash | 8.7s | 85% (drops to 76% on complex queries) |
+| LIDA | 12.3s | Qualitative only |
 
-### Qualitative Quality
+Specter is **4.2× faster than LLM4Dash** and **6× faster than LIDA**, while scaling linearly with dataset size.
 
-A user study with 21 participants (9 data analysts, 9 software engineers, 3 novices) rated system output against expert-authored dashboards:
+### User Study
 
-- **Clarity:** 4.7 / 5 (SD = 0.3)
-- **Correctness:** 4.3 / 5 (SD = 0.4)
-- **Insight accuracy:** 94% match with human interpretations
+21 participants (9 data analysts, 9 software engineers, 3 novices) rated Specter against expert-authored dashboards:
+
+| Metric | Score |
+|---|---|
+| Clarity | **4.7 / 5** (SD = 0.3) |
+| Correctness | **4.3 / 5** (SD = 0.4) |
+| Insight accuracy vs. human | **94% match** |
+
+---
+
+## Auto-Generated Visualizations
+
+Specter selects the optimal chart type autonomously — no user configuration. Below: a human-authored baseline (left) vs. Specter's autonomous output (right) on the same dataset and query.
+
+<div align="center">
+
+| Human-authored baseline | Specter autonomous output |
+|:---:|:---:|
+| ![Manual pie chart](auto_pie.png) | ![Auto product category chart](product_category.png) |
+| *Manually configured* | *Generated from a conversational prompt* |
+
+</div>
+
+Chart type, layout, aggregations, and color mapping were all determined entirely by the system — faithfully replicating the baseline's analytical intent.
 
 ---
 
 ## Safety
 
-All generated code is inspected before execution. Unauthorized tokens (`os`, `sys`, `exec`, `eval`, `open`, `subprocess`) cause immediate rejection. Code runs inside a restricted namespace exposing only `pandas`, `numpy`, and an immutable copy of the dataset — no filesystem access, no network access, no OS interaction.
+All synthesized code is inspected before execution. Any match against the forbidden token set causes immediate rejection — zero execution occurs.
 
-Zero partial malicious executions were observed across all 30 adversarial test prompts.
+```
+Forbidden:  os · sys · exec · eval · compile · open · subprocess · socket
+Allowed:    pandas · numpy · whitelisted builtins · immutable dataset copy
+```
+
+No partial malicious executions across all 30 adversarial test prompts.
 
 ---
 
@@ -113,17 +137,7 @@ Zero partial malicious executions were observed across all 30 adversarial test p
 | LLM backbone | Llama-3.3-70B (zero-temperature decoding) |
 | Frontend / Dashboard | Streamlit |
 | Data processing | pandas, numpy |
-| Schema profiling | Custom inference module |
 | Execution sandbox | Restricted Python namespace |
-
----
-## Datasets Used
-
-| Dataset | Size | Purpose |
-|---|---|---|
-| Sample Superstore | 9,994 rows × 21 cols | Schema parsing, aggregation, time-series |
-| E-commerce Customer Behavior | 100,000 rows × 10 cols | Scalability and latency testing |
-| Medical Insurance Costs | 1,000 rows × 7 cols | Statistical aggregation, correlation |
 
 ---
 
@@ -132,19 +146,17 @@ Zero partial malicious executions were observed across all 30 adversarial test p
 > **⚠ Proprietary — Pre-Publication**  
 > Copyright © 2026 Divyansh Gawri. All Rights Reserved.
 
-This project is confidential intellectual property. The following restrictions apply until formal research publication:
-
-- **No unauthorized use** — execution or deployment is prohibited
+- **No unauthorized use** — execution or deployment is prohibited until research publication is finalized
 - **No derivative works** — the multi-agent pipeline and DAG architecture may not be reproduced or modified
 - **No benchmarking** — comparative testing requires express written consent
 
-Violations will be treated as intellectual property theft. For collaboration or access inquiries, contact **2023010030913@gndu.ac.in**.
+For collaboration or access inquiries → **2023010030913@gndu.ac.in**
 
 ---
 
 ## Acknowledgements
 
-This research was developed under the guidance of **Prof. Harkiran Kaur**, Guru Nanak Dev University, whose expertise and constructive feedback were invaluable throughout.
+Developed under the guidance of **Prof. Harkiran Kaur**, Guru Nanak Dev University, whose expertise and feedback were invaluable throughout this research.
 
 ---
 
