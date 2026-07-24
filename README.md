@@ -159,9 +159,3 @@ For collaboration or access inquiries → **dishugawri@gmail.com**
 Developed with the guidance of **Ms. Harkiran Kaur**, Guru Nanak Dev University, whose expertise and feedback were invaluable throughout this research.
 
 ---
-
-<div align="center">
-
-*Guru Nanak Dev University · Amritsar, Punjab, India · 2026*
-
-</div>
