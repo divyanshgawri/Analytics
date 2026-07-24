@@ -41,10 +41,9 @@ warnings.filterwarnings("ignore", category=FutureWarning, module="pandas")
 st.set_page_config(page_title="Specter Analytics", layout="wide")
 load_dotenv()
 _start_time = time.time()
-# ---------------------------
-# Helper: Check API Key
-# ---------------------------
+
 GROQ_KEY = os.getenv("GROQ_API_KEY")
+
 if not GROQ_KEY:
     st.error("GROQ_API_KEY missing in environment (.env). Add GROQ_API_KEY and restart.")
     st.stop()
