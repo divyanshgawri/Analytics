@@ -31,10 +31,10 @@
 
 Gawri Analytics lets you **talk to your data in plain English and get real dashboards back** — instantly. Upload a CSV, ask a question, and the system figures out the right chart, computes the right numbers, and renders the result. No code. No manual configuration.
 
-- 📊 **Visualizations** — bar charts, pie charts, line trends, scatter plots, KPI cards
-- 🔢 **Numerical analysis** — aggregations, averages, grouped summaries, correlations
-- 🧩 **Multi-chart dashboards** — full layout-aware dashboards from a single conversational prompt
-- 💡 **Auto-generated insights** — narrative explanations written alongside every chart
+-  **Visualizations** — bar charts, pie charts, line trends, scatter plots, KPI cards
+-  **Numerical analysis** — aggregations, averages, grouped summaries, correlations
+-  **Multi-chart dashboards** — full layout-aware dashboards from a single conversational prompt
+-  **Auto-generated insights** — narrative explanations written alongside every chart
 
 ---
 
@@ -150,13 +150,13 @@ No partial malicious executions across all 30 adversarial test prompts.
 - **No derivative works** — the multi-agent pipeline and DAG architecture may not be reproduced or modified
 - **No benchmarking** — comparative testing requires express written consent
 
-For collaboration or access inquiries → **2023010030913@gndu.ac.in**
+For collaboration or access inquiries → **dishugawri@gmail.com**
 
 ---
 
 ## Acknowledgements
 
-Developed under the guidance of **Prof. Harkiran Kaur**, Guru Nanak Dev University, whose expertise and feedback were invaluable throughout this research.
+Developed with the guidance of **Ms. Harkiran Kaur**, Guru Nanak Dev University, whose expertise and feedback were invaluable throughout this research.
 
 ---
 
