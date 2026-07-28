@@ -150,7 +150,7 @@ No partial malicious executions across all 30 adversarial test prompts.
 - **No derivative works** — the multi-agent pipeline and DAG architecture may not be reproduced or modified
 - **No benchmarking** — comparative testing requires express written consent
 
-For collaboration or access inquiries → **dishugawri@gmail.com**
+For collaboration or access inquiries → **202301003913@gndu.ac.in**
 
 ---
 
