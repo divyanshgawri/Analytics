@@ -14,7 +14,7 @@
 
 **Automated Exploratory Data Analysis · Safe · Deterministic · Production-Ready**
 
-[![Status](https://img.shields.io/badge/status-pre--publication-red?style=flat-square)](mailto:2023010030913@gndu.ac.in)
+[![Preprint](https://img.shields.io/badge/Zenodo-Preprint-1682D4?style=flat-square&logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.21650716)
 [![ESR](https://img.shields.io/badge/execution%20success-92%25-7f77dd?style=flat-square)](#results)
 [![Latency](https://img.shields.io/badge/avg%20latency-2.06s-1d9e75?style=flat-square)](#results)
 [![Adversarial](https://img.shields.io/badge/adversarial%20refusal-100%25-ef9f27?style=flat-square)](#safety)
