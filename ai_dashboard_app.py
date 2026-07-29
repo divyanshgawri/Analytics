@@ -1,11 +1,3 @@
-
-####################################################################################
-# Specter Analytics - Production-ready AI Dashboard Generator
-# Complete Streamlit app
-# Requirements: streamlit, pandas, plotly, python-dotenv, langchain_groq (or replace with your LLM wrapper)
-# Place GROQ API key in .env as GROQ_API_KEY
-# Save as ai_dashboard_app_prod.py
-
 import io
 import os
 import json
@@ -38,7 +30,7 @@ except Exception:
 # ---------------------------
 warnings.filterwarnings("ignore", category=UserWarning, module="pandas")
 warnings.filterwarnings("ignore", category=FutureWarning, module="pandas")
-st.set_page_config(page_title="Specter Analytics", layout="wide")
+st.set_page_config(page_title="Gawri Analytics", layout="wide")
 load_dotenv()
 _start_time = time.time()
 
@@ -748,7 +740,7 @@ def main():
 
     # Sidebar controls
     with st.sidebar:
-        st.title("Specter Analytics")
+        st.title("Gawri Analytics")
         uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
         if uploaded_file is not None and st.session_state.df is None:
             try:
@@ -898,7 +890,7 @@ def main():
 
             # Offer CSV download of filtered dataset
             csv = active_df.to_csv(index=False)
-            st.download_button("Download current view as CSV", csv, file_name="Specter_view.csv", mime="text/csv")
+            st.download_button("Download current view as CSV", csv, file_name="Gawri_view.csv", mime="text/csv")
 
 if __name__ == "__main__":
     main()
